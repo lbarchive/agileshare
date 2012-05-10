@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Agile Share</title>
+  <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic|Open+Sans:400,700|Ubuntu+Mono' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="main.css" type="text/css"/>
+  <link rel="stylesheet" href="fonts/WebSymbols/stylesheet.css" type="text/css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="main.js"></script>
+</head>
+<body>
+<div class='wrapper'>
+  <h1><sup>a</sup>gile <sub>s</sub>hare</h1>
+  <div id='url-container'>
+    <span class='symbol'>K</span> <input id='url' type='text' placeholder='http://...'/>
+  </div>
+  <hr/>
+  <div id='filter-container'>
+    <span class='symbol'>L</span> <input id='filter' type='text' placeholder='Type in letters to filter'/>
+  </div>
+  <div id='services'></div>
+  <div id='service-container'></div>
+  <hr/>
+  <ul id='code'>
+    <li>
+      Bookmarklet: 
+      <a id="bookmarklet" href="#" alt="Agile Share" title="Agile Share" target='_blank'>℁</a>
+    </li>
+    <li>
+      Link to
+      <pre><span class='code-url'></span></pre>
+      from your page and that's all you need to do.
+    </li>
+    <li>
+      You can use this code:
+      <pre>&lt;a href="<span class='code-url'></span>" alt="Agile Share" title="Agile Share" target="_blank"&gt;℁&lt;/a&gt;</pre>
+    </li>
+    <li>
+      You can specify a URL and/or a service by using hash:
+      <pre><span class='code-url'></span>#<span class='url-query'></span></pre>
+      or query string:
+      <pre><span class='code-url'></span>?<span class='url-query'></span></pre>
+    </li>
+  </ul>
+  <hr/>
+  <div id='footer'>
+    <p class='tagline'>…for people who don't like so-called-social buttons on their websites…</p>
+    <p class='tagline'>…and for people who like to share via social buttons…</p>
+    <p>
+      <a href="#" onclick="$('#url').val(location.href.split('?')[0].split('#')[0]);return false;" alt="Agile Share" title="Agile Share">℁</a>
+      &bullet;
+      Created by <a href="http://yjl.im">Yu-Jie Lin</a>
+      &bullet;
+      <a href="https://github.com/livibetter/agileshare">GitHub</a>
+    </p>
+  </div>
+</div>
+</body>
+</html>

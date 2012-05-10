@@ -1,0 +1,194 @@
+body {
+  background: #eee;
+  color: #444;
+
+  font-family: 'Lora', serif;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 640px;
+}
+
+span.symbol {
+  font-family: "WebSymbolsRegular";
+}
+
+h1 {
+  color: #ccc;
+
+  text-align: center;
+
+  font-style: italic;
+}
+
+h1 sup,
+h1 sub {
+  color: #111;
+}
+
+a {
+  color: #333;
+
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+pre {
+  font-family: 'Ubuntu Mono', monospace;
+
+  margin-left: 2em;
+
+  text-indent: 0;
+
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+hr {
+  background: #aaa;
+  color: #aaa;
+
+  border-radius: 3px;
+
+  width: 630px;
+  height: 6px;
+}
+
+#url-container,
+#filter-container {
+  background: #444;
+  color: #aaa;
+
+  border: 2px solid #888;
+  border-radius: 6px;
+
+  margin-bottom: 6px;
+  padding: 6px;
+}
+
+#url,
+#filter {
+  width: 600px;
+
+  background: transparent;
+  color: inherit;
+
+  border: none;
+
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 1em;
+}
+
+#services {
+  padding-top: 0;
+  padding-bottom: 3px;
+
+  text-align: center;
+}
+
+span.btn-service {
+  display: inline-block;
+
+  width: auto;
+  overflow: hidden;
+
+  background: #222;
+  color: #aaa;
+
+  font-family: 'Web Symbols', sans-serif;
+  text-align: center;
+
+  border-radius: 6px;
+
+  padding: 3px 6px;
+  margin: 6px 3px 0 3px;
+
+  cursor: pointer;
+
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+
+span.btn-service:hover {
+  background: #ddd;
+  color: #222;
+}
+
+span.btn-service.selected {
+  background: #ddd;
+  color: #222;
+
+  width: 600px;
+
+  font-size: 2em;
+  font-weight: bold;
+
+  margin: auto;
+}
+
+span.btn-service.hidden,
+span.btn-service.unselected {
+  background: transparent;
+  color: transparent;
+
+  width: 0;
+
+  padding: 0;
+  margin: 0;
+}
+
+#service-container {
+  display: none;
+
+  color: #222;
+
+  width: 612px;
+
+  margin: auto;
+}
+
+#code {
+  list-style: none;
+
+  margin-left: -1em;
+  padding-left: 1em;
+
+  text-indent: -1em;
+}
+
+#code li {
+  margin-bottom: 0.5em;
+}
+
+#code li:before {
+  content: "†";
+}
+
+#bookmarklet {
+  background: #aaa;
+  color: #333;
+
+  border: #888 3px solid;
+  border-radius: 3px;
+
+  padding: 3px 6px;
+}
+
+.tagline {
+  color: #888;
+
+  font-style: italic;
+}
+
+#footer {
+  color: #aaa;
+
+  text-align: center;
+
+  margin-top: 6px;
+}
