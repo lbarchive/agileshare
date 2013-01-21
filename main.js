@@ -323,9 +323,14 @@ ServiceXING.prototype.create_view = function(){
     'data-counter': 'top',
     'data-lang': 'en'
     }).appendTo(this.view);
-  $.ajaxSetup({cache: true});
-  $.getScript('https://www.xing-share.com/js/external/share.js');
-  $.ajaxSetup({cache: false});
+  // use the conventional way to insert script tag as the code provided by
+  // XING.
+  (function(d, s) {
+    var x = d.createElement(s);
+    var s = d.getElementsByTagName(s)[0];
+    x.src ='https://www.xing-share.com/js/external/share.js';
+    s.parentNode.insertBefore(x, s);
+  })(document, 'script');
 }
 
 
