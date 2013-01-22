@@ -34,5 +34,5 @@ If you find a bug or need some services to be added to the buttons, create an is
 License
 -------
 
-    Copyright (c) 2012 Yu-Jie Lin
+    Copyright (c) 2012-2013 Yu-Jie Lin
     This program is licensed under the MIT License, see COPYING
