@@ -78,20 +78,26 @@ function ServiceDelicious(){}
 ServiceDelicious.prototype = new Service('delicious', 'Delicious');
 ServiceDelicious.prototype.create_view = function(){
   var url = $('#url').val();
+  // https://s3.amazonaws.com/avos-site-images/delicious-logo-rev1.zip
   var $img = $('<img/>', {
     border: 0,
-    src: 'http://www.delicious.com/static/img/delicious.small.gif',
-    width: '10px',
-    height: '10px',
+    src: '/images/delicious.png',
     alt: 'Delicious',
-    title: 'Delicious'
-  }).css('margin-right', '1ex');
+    title: 'Delicious',
+    css: {
+      'margin-right': '1ex',
+      'vertical-align': 'middle'
+    }
+  })
 
   var $btn = $('<button/>', {
     click: function(){
       window.open('http://www.delicious.com/save?v=5&noui&jump=close&url=' + encodeURIComponent(url));
     },
-    html: 'Save this on Delicious'
+    html: $('<span/>', {
+      text: 'Save this on Delicious',
+      css: {'vertical-align': 'middle'}
+    })
   }).prepend($img)
     .appendTo(this.view);
 }
