@@ -73,7 +73,7 @@ Service.prototype = {
 }
 
 
-// http://delicious.com/tools
+// https://delicious.com/developers
 function ServiceDelicious(){}
 ServiceDelicious.prototype = new Service('delicious', 'Delicious');
 ServiceDelicious.prototype.create_view = function(){
@@ -100,6 +100,19 @@ ServiceDelicious.prototype.create_view = function(){
     })
   }).prepend($img)
     .appendTo(this.view);
+
+  // Use https://github.com/blueimp/JavaScript-MD5 MD5 library instead of popular one
+  // http://www.myersdaily.org/joseph/javascript/md5-text.html
+  // the latter has no license stated.
+  $.getJSON('http://feeds.delicious.com/v2/json/urlinfo/' + md5(url) + '?callback=?', function (data) {
+    if ($('#btn-delicious.selected').length != 1) {
+      return;
+    }
+
+    var count = (data = data[0]) ? data.total_posts : 0;
+    var msg = count + ' ' + ((count == 1) ? 'person has' : 'people have') + ' saved this URL.';
+    $('<span/>').text(msg).appendTo($('#service-container > div').append(' '));
+  });
 }
 
 

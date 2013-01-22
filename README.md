@@ -26,6 +26,30 @@ Find `<span class='post-icons'>`, then add `<b:if...>...</b:if>` part inside it.
 
 You don't have to put the code at same place, as long as it's inside posts loop, it will work.
 
+Buttons
+-------
+
+* Delicious
+* Digg
+* Email
+* Facebook
+* Google+
+* Linked In
+* Pinterest
+* Reddit
+* StumbleUpon
+* Tumblr
+* Twitter
+* VKontakte
+* XING
+
+Supported options
+-----------------
+
+You can use either query string or fragment (hash) to specify options in key/value pair form.
+
+* `url`: the URL to be submitted to a service.
+
 Issues
 ------
 

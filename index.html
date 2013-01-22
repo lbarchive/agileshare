@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="main.css" type="text/css"/>
   <link rel="stylesheet" href="fonts/WebSymbols/stylesheet.css" type="text/css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="http://blueimp.github.com/JavaScript-MD5/md5.min.js"></script>
   <script src="main.js"></script>
 </head>
 <body>
@@ -37,7 +38,7 @@
       <pre>&lt;a href="<span class='code-url'></span>" alt="Agile Share" title="Agile Share" target="_blank"&gt;℁&lt;/a&gt;</pre>
     </li>
     <li>
-      You can specify a URL and/or a service by using hash:
+      You can specify a URL and/or a service by using fragment (hash):
       <pre><span class='code-url'></span>#<span class='url-query'></span></pre>
       or query string:
       <pre><span class='code-url'></span>?<span class='url-query'></span></pre>
@@ -45,7 +46,7 @@
   </ul>
   <hr/>
   <div id='footer'>
-    <p class='tagline'>…for people who don't like so-called-social buttons on their websites…</p>
+    <p class='tagline'>…for people who don't like so-called social buttons on their websites…</p>
     <p class='tagline'>…and for people who like to share via social buttons…</p>
     <p>
       <a href="#" onclick="$('#url').val(location.href.split('?')[0].split('#')[0]);return false;" alt="Agile Share" title="Agile Share">℁</a>
