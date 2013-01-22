@@ -212,6 +212,7 @@ ServiceFlattr.prototype.create_view = function(){
   }).prepend($img)
     .appendTo(this.view);
 
+  var flattr_id = this.flattr_id;
   // Flattr supports CORS for all, no need for callback.
   $.getJSON('https://api.flattr.com/rest/v2/things/lookup/?url=' + encodeURIComponent(url), function (data) {
     if ($('#btn-flattr.selected').length != 1) {
@@ -222,11 +223,11 @@ ServiceFlattr.prototype.create_view = function(){
     var msg = count + ' flattr' + ((count == 1) ? '' : 's') + '.';
     if (!data.message) {
       msg = '<a href="' + data.link + '">This thing</a> has ' + msg;
-      if (this.flattr_id && data.owner.username != this.flattr_id) {
+      if (flattr_id && data.owner.username != flattr_id) {
         msg += ' (Flattr IDs do not match)'
         $('#service-container button').remove();
       }
-    } else if (!this.flattr_id) {
+    } else if (!flattr_id) {
       msg = 'No Flattr ID for submitting new URL.';
       $('#service-container button').remove();
     }
