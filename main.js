@@ -183,6 +183,58 @@ ServiceFacebook.prototype.create_view = function(){
 }
 
 
+// http://developers.flattr.net/auto-submit/
+function ServiceFlattr(){}
+ServiceFlattr.prototype = new Service('flattr', 'Flattr');
+ServiceFlattr.prototype.create_view = function(){
+  var url = $('#url').val();
+  var $img = $('<img/>', {
+    border: 0,
+    src: 'https://flattr.com/_img/icons/flattr_logo_16.png',
+    alt: 'Flattr',
+    title: 'Flattr',
+    css: {
+      'margin-right': '1ex',
+      'vertical-align': 'middle'
+    }
+  })
+
+  var $btn = $('<button/>', {
+    click: function(){
+      window.open('https://flattr.com/submit/auto?' +
+        'user_id=' + encodeURIComponent(this.flattr_id) +
+        '&url=' + encodeURIComponent(url));
+    },
+    html: $('<span/>', {
+      text: 'Flattr it!',
+      css: {'vertical-align': 'middle'}
+    })
+  }).prepend($img)
+    .appendTo(this.view);
+
+  // Flattr supports CORS for all, no need for callback.
+  $.getJSON('https://api.flattr.com/rest/v2/things/lookup/?url=' + encodeURIComponent(url), function (data) {
+    if ($('#btn-flattr.selected').length != 1) {
+      return;
+    }
+
+    var count = data.message ? 0 : data.flattrs;
+    var msg = count + ' flattr' + ((count == 1) ? '' : 's') + '.';
+    if (!data.message) {
+      msg = '<a href="' + data.link + '">This thing</a> has ' + msg;
+      if (this.flattr_id && data.owner.username != this.flattr_id) {
+        msg += ' (Flattr IDs do not match)'
+        $('#service-container button').remove();
+      }
+    } else if (!this.flattr_id) {
+      msg = 'No Flattr ID for submitting new URL.';
+      $('#service-container button').remove();
+    }
+    $('<span/>').html(msg).appendTo($('#service-container > div').append(' '));
+  });
+}
+
+
 // http://www.google.com/intl/en/webmasters/+1/button/index.html
 function ServiceGooglePlus(){}
 ServiceGooglePlus.prototype = new Service('google-plus', 'Google+', '<span class="symbol">g</span> Google+');
@@ -388,6 +440,7 @@ $(function(){
     ServiceDelicious, ServiceDigg,
     ServiceEmail,
     ServiceFacebook,
+    ServiceFlattr,
     ServiceGooglePlus,
     ServiceLinkedIn,
     ServicePinterest,
@@ -407,7 +460,9 @@ $(function(){
 
   var url = kvs_hash['url'] || kvs_query['url'] || document.referrer || href;
   var service_id = kvs_hash['service'] || kvs_query['service'] || null;
-  
+  var flattr_id = kvs_hash['flattr_id'] || kvs_query['flattr_id'] || null;
+  services.services.flattr.flattr_id = flattr_id;
+
   $('.code-url').text(href);
   $('#bookmarklet').attr(
     'href', 

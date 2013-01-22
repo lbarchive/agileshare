@@ -33,6 +33,7 @@ Buttons
 * Digg
 * Email
 * Facebook
+* Flattr
 * Google+
 * Linked In
 * Pinterest
@@ -49,6 +50,8 @@ Supported options
 You can use either query string or fragment (hash) to specify options in key/value pair form.
 
 * `url`: the URL to be submitted to a service.
+* `service`: select the service when page loaded.
+* `flattr_id`: specify who owns the URL for Flattr service.
 
 Issues
 ------
